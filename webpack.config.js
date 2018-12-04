@@ -43,8 +43,8 @@ module.exports = async function (_, env) {
     devtool: isProd ? 'source-map' : 'inline-source-map',
     stats: 'minimal',
     output: {
-      filename: isProd ? '[name].[chunkhash:5].js' : '[name].js',
-      chunkFilename: '[name].[chunkhash:5].js',
+      filename: isProd ? 'img-resize/[name].[chunkhash:5].js' : 'img-resize/[name].js',
+      chunkFilename: 'img-resize/[name].[chunkhash:5].js',
       path: path.join(__dirname, 'build'),
       publicPath: '/',
       globalObject: 'self'
@@ -157,14 +157,14 @@ module.exports = async function (_, env) {
           type: 'javascript/auto',
           loader: 'file-loader',
           options: {
-            name: '[name].[hash:5].[ext]',
+            name: 'img-resize/[name].[hash:5].[ext]',
           },
         },
         {
           test: /\.(png|svg|jpg|gif)$/,
           loader: 'file-loader',
           options: {
-            name: '[name].[hash:5].[ext]',
+            name: 'img-resize/[name].[hash:5].[ext]',
           },
         }
       ]
@@ -205,8 +205,8 @@ module.exports = async function (_, env) {
       // See: https://github.com/webpack-contrib/mini-css-extract-plugin
       // See also: https://twitter.com/wsokra/status/970253245733113856
       isProd && new MiniCssExtractPlugin({
-        filename: '[name].[contenthash:5].css',
-        chunkFilename: '[name].[contenthash:5].css'
+        filename: 'img-resize/[name].[contenthash:5].css',
+        chunkFilename: 'img-resize/[name].[contenthash:5].css'
       }),
 
       new OptimizeCssAssetsPlugin({

@@ -57,7 +57,7 @@ module.exports = class AutoSWPlugin {
             }
 
             const filename = dep.string;
-            const outputFilename = this.options.filename || 'serviceworker.js'
+            const outputFilename = this.options.filename ||'img-resize/serviceworker.js'
             const context = parser.state.current.context;
             serviceWorkers.push({
               outputFilename,
